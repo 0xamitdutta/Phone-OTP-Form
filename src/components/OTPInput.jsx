@@ -20,6 +20,11 @@ const OTPInput = ({ length }) => {
         newOTP[index] = value.substring(value.length - 1);
         setOTP(newOTP);
 
+        // Change the focus to next input once entered
+        if (index !== length - 1 && value) {
+            inputRefs.current[index + 1].focus();
+        }
+
         const OTPString = newOTP.join('');
         if (OTPString.length === length) {
             alert('Login Successful');

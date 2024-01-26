@@ -27,13 +27,16 @@ const OTPInput = ({ length }) => {
 
         const OTPString = newOTP.join('');
         if (OTPString.length === length) {
-            alert('Login Successful');
+            console.log('Login Successful');
         }
     }
 
-    const handleKeyDown = (e) => {
-
+    const handleKeyDown = (e, index) => {
+        if (e.key == 'Backspace' && !OTP[index] && index !== 0) {
+                inputRefs.current[index - 1].focus();
+        }
     }
+
     return (
         <div className='app-container'>
             <h1>Enter 4 digit OTP</h1>

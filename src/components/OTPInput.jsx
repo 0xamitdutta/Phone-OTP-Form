@@ -1,0 +1,54 @@
+import { useEffect, useRef, useState } from 'react'
+import '../App.css'
+
+const OTPInput = ({ length }) => {
+    const [OTP, setOTP] = useState(new Array(length).fill(''));
+    const inputRefs = useRef([]);
+
+    useEffect(() => {
+        inputRefs.current[0].focus();
+    }, [])
+
+    const handleChange = (e, index) => {
+        // Check if value entered is number
+        const value = e.target.value;
+        if (isNaN(value)) {
+            return;
+        }
+        // Update state
+        const newOTP = [...OTP];
+        newOTP[index] = value.substring(value.length - 1);
+        setOTP(newOTP);
+
+        const OTPString = newOTP.join('');
+        if (OTPString.length === length) {
+            alert('Login Successful');
+        }
+    }
+
+    const handleKeyDown = (e) => {
+
+    }
+    return (
+        <div className='app-container'>
+            <h1>Enter 4 digit OTP</h1>
+            {
+                OTP.map((value, index) => {
+                    return (
+                        <input
+                            key={index}
+                            type='text'
+                            className='otp-input'
+                            value={value}
+                            ref={(ref) => inputRefs.current[index] = ref}
+                            onChange={(e) => handleChange(e, index)}
+                            onKeyDown={(e) => handleKeyDown(e, index)}
+                        />
+                    )
+                })
+            }
+        </div>
+    )
+}
+
+export default OTPInput

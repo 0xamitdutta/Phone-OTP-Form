@@ -1,0 +1,24 @@
+.app-container {
+    background-color: aqua;
+    font: 15px sans-serif;
+    text-align: center;
+}
+
+.phone-input {
+    height: 40px;
+    width: 300px;
+    margin: 10px;
+}
+
+.phone-input-submit {
+    height: 40px;
+    width: 100px;
+    margin: 10px;
+}
+
+.otp-input {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    font-size: 1.2em;
+}

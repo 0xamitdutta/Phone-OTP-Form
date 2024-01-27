@@ -27,6 +27,7 @@ const OTPInput = ({ length }) => {
 
         const OTPString = newOTP.join('');
         if (OTPString.length === length) {
+            alert('Login Successful');
             console.log('Login Successful');
         }
     }
